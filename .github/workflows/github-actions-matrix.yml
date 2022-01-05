@@ -13,4 +13,11 @@ jobs:
             distro: fedora_latest
 
     steps:
-      - run:  echo `uname -a`
+      - uses: ./
+        name: build artifact
+        id: build
+        with:
+          arch: ${{ matrix.arch }}
+          distro: ${{ matrix.distro }}
+          run: |
+            uname -a
