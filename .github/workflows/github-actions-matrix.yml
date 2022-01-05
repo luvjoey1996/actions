@@ -1,0 +1,16 @@
+name: different aarch
+on: [push]
+
+jobs:
+  build_job:
+    runs-on: ubuntu-latest
+    name: Build on ${{ matrix.distro }} ${{ matrix.arch }}
+
+    strategy:
+      matrix:
+        include:
+          - arch: aarch64
+            distro: fedora_latest
+
+    steps:
+      - run:  echo `uname -a`
